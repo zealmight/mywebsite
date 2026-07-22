@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c0c0d" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f6f4" media="(prefers-color-scheme: light)">
+
+  <title>Onat Dibo</title>
+  <meta name="description"
+    content="Siber Güvenlik Araştırmacısı & Zafiyet Araştırmacısı. Kişisel siber güvenlik portföyü ve yetenekleri.">
+  <meta name="keywords"
+    content="siber güvenlik, penetration test, sızma testi, ethical hacker, OSCP, yetenekler, portföy">
+  <meta name="author" content="ZealMight">
+
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline';
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' data:;
+    frame-src 'none';
+    object-src 'none';
+  ">
+
+  <link rel="icon" type="image/png" href="img/profile_photo.png">
+  <link rel="apple-touch-icon" href="img/profile_photo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>:root{--bg:#f6f6f4;--surface:#fff;--border:rgba(0,0,0,.08);--accent:#2563eb;--accent-subtle:rgba(37,99,235,.06);--text:#18181a;--muted:#71717a}.dark{--bg:#0c0c0d;--surface:#18181a;--border:rgba(255,255,255,.07);--accent:#60a5fa;--accent-subtle:rgba(96,165,250,.08);--text:#f0f0f2;--muted:#8a8a90}#nav-links a.active{color:var(--accent)}</style>
+</head>
+
+<body class="bg-bg text-text font-sans leading-relaxed overflow-x-hidden antialiased selection:bg-accent selection:text-white">
+
+  <header class="fixed top-0 left-0 w-full z-50 h-[52px] flex items-center px-8 bg-bg border-b border-border">
+    <div class="max-w-[900px] mx-auto w-full flex justify-between items-center">
+      <a href="#hero" class="font-mono font-semibold text-[0.95rem] transition-opacity duration-200 hover:opacity-80">
+        <span class="text-accent">~</span>ZealMight<span class="text-muted">.</span>
+      </a>
+
+      <nav>
+        <ul class="flex gap-6 list-none items-center max-md:fixed max-md:top-[52px] max-md:left-[-100%] max-md:w-full max-md:h-[calc(100vh-52px)] max-md:bg-bg max-md:flex-col max-md:p-8 max-md:gap-5 max-md:border-t max-md:border-border max-md:transition-all max-md:duration-300 max-md:z-40" id="nav-links">
+          <li><a href="#about" class="text-[0.8rem] font-medium text-muted hover:text-text transition-colors duration-200" data-tr="Hakkımda" data-en="About Me">Hakkımda</a></li>
+          <li><a href="#expertise" class="text-[0.8rem] font-medium text-muted hover:text-text transition-colors duration-200" data-tr="Yeteneklerim" data-en="My Skills">Yeteneklerim</a></li>
+          <li><a href="#projects" class="text-[0.8rem] font-medium text-muted hover:text-text transition-colors duration-200" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+          <li><a href="#contact" class="text-[0.8rem] font-medium text-muted hover:text-text transition-colors duration-200" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button class="w-8 h-8 border border-border rounded text-muted hover:border-accent hover:text-accent hover:shadow-sm flex items-center justify-center bg-transparent cursor-pointer text-[0.75rem] font-mono font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" id="theme-toggle" aria-label="Temayı Değiştir / Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="w-8 h-8 border border-border rounded text-muted hover:border-accent hover:text-accent hover:shadow-sm flex items-center justify-center bg-transparent cursor-pointer text-[0.75rem] font-mono font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" id="lang-toggle" aria-label="Dili Değiştir / Change Language">
+          EN
+        </button>
+        <button class="hidden max-md:flex items-center justify-center bg-transparent border-none text-text text-[1.2rem] cursor-pointer" id="menu-toggle" aria-label="Menüyü Aç/Kapat">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="min-h-[85vh] flex items-center pt-24 px-8 max-w-[900px] mx-auto">
+    <div class="w-full opacity-100 translate-y-0 transition-all duration-700 ease-out">
+      <div class="flex items-center justify-between gap-12 flex-col md:flex-row">
+        <div class="max-w-[640px] flex-1 text-center md:text-left">
+          <div class="inline-block font-mono text-[0.65rem] uppercase tracking-[0.15em] text-muted border border-border px-[0.65rem] py-[0.25rem] rounded-full mb-6">ONAT DIBO</div>
+          <h1 class="text-[2.75rem] max-md:text-[2rem] max-sm:text-[1.65rem] font-bold leading-tight mb-4 tracking-[-0.03em]"
+            data-tr-html="Merhaba, Ben <br><span class='bg-gradient-to-r bg-clip-text text-transparent'>Siber Güvenlikte Öğrenen ve Uygulayan</span>"
+            data-en-html="Hello, I'm a <br><span class='bg-gradient-to-r bg-clip-text text-transparent'>Cybersecurity Learner &amp; Practitioner</span>">
+            Merhaba, Ben <br>
+            <span class="bg-gradient-to-r bg-clip-text text-transparent">Siber Güvenlikte Öğrenen ve Uygulayan</span>
+          </h1>
+          <h2 class="text-base font-normal text-muted leading-relaxed mb-8">
+            <span data-tr="Siber güvenlik alanında uzmanlaşmaya kararlı,"
+              data-en="Committed to specializing in cybersecurity, I am">Siber güvenlik alanında uzmanlaşmaya
+              kararlı,</span>
+            <br>
+            <span class="typewrite" data-period="2000"
+              data-type-tr='[ "Cisco sertifikalı BT mezunuyum.", "Sürekli öğreniyor ve gelişiyorum.", "Yeni fırsatlara ve iş birliklerine açığım." ]'
+              data-type-en='[ "a Cisco certified IT graduate.", "constantly learning and growing.", "open to new opportunities & collaborations." ]'>
+              <span class="border-r-2 border-accent animate-cursor-blink"></span>
+            </span>
+          </h2>
+          <div class="flex gap-3 justify-center md:justify-start">
+            <a href="#about" class="inline-flex items-center gap-[0.4rem] px-[1.2rem] py-[0.55rem] rounded bg-accent text-white text-[0.85rem] font-medium border border-transparent cursor-pointer shadow-sm hover:shadow-md transition-all duration-200 hover:opacity-90 active:scale-95">
+              <i class="fas fa-user"></i> <span data-tr="Hakkımda" data-en="About Me">Hakkımda</span>
+            </a>
+          </div>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="w-[220px] h-[220px] max-md:w-[160px] max-md:h-[160px] max-sm:w-[130px] max-sm:h-[130px] rounded-full ring-2 ring-border overflow-hidden relative shadow-xl transition-transform duration-500 hover:scale-[1.02]" style="backface-visibility:hidden;will-change:transform">
+            <img src="img/profile_photo.png" alt="Onat Dibo" class="w-full h-full object-cover block" style="transform:translateZ(0);backface-visibility:hidden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-20 px-8 max-w-[900px] mx-auto opacity-0 translate-y-5 transition-all duration-700 ease-out" data-reveal>
+    <div class="mb-10 text-center">
+      <span class="font-mono text-[0.7rem] text-muted uppercase tracking-[0.15em] mb-1.5 block" data-tr="GENEL BAKIŞ" data-en="OVERVIEW">GENEL BAKIŞ</span>
+      <h2 class="text-2xl font-semibold text-text text-center tracking-tight" data-tr="Hakkımda" data-en="About Me">Hakkımda</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="text-muted text-[0.9rem] leading-relaxed" data-tr="Siber güvenlik alanında uzmanlaşmaya kararlı, Cisco sertifikalı BT mezunu. Erzincan Üniversitesi Bilişim Teknolojileri mezunuyum. Akbank Gençlik Akademisi iş birliğiyle Cisco Siber Güvenlik sertifikamı aldım. Öğrenmeyi bırakmıyorum. Henüz yolun başındayım, ama hızlıyım. Yeni fırsatlara ve iş birliklerine açığım. Bağlanmaktan memnuniyet duyarım."
+          data-en="Committed to specializing in cybersecurity, I am a Cisco-certified IT graduate. I graduated from Erzincan University with a degree in Information Technology, and obtained my Cisco Cybersecurity certification in collaboration with Akbank Youth Academy. I never stop learning. I am only at the beginning of my journey, but I am fast. Open to new opportunities and collaborations. I would be glad to connect.">
+          Siber güvenlik alanında uzmanlaşmaya kararlı, Cisco sertifikalı BT mezunu. Erzincan Üniversitesi Bilişim
+          Teknolojileri mezunuyum. Akbank Gençlik Akademisi iş birliğiyle Cisco Siber Güvenlik sertifikamı aldım.
+          Öğrenmeyi bırakmıyorum. Henüz yolun başındayım, ama hızlıyım. Yeni fırsatlara ve iş birliklerine açığım.
+          Bağlanmaktan memnuniyet duyarım.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <div>
+          <h4 class="font-mono text-[0.75rem] text-accent uppercase tracking-[0.06em] mb-[0.6rem] font-semibold"><i class="fas fa-shield-halved"></i> <span data-tr="Geliştirme & Altyapı"
+              data-en="Development & Infrastructure">Geliştirme & Altyapı</span></h4>
+          <div class="flex flex-wrap gap-[0.4rem]">
+            <span class="font-mono text-[0.7rem] px-[0.55rem] py-[0.2rem] border border-border rounded text-muted flex items-center gap-[0.3rem] hover:border-accent hover:text-accent transition-all duration-200"><i class="fa-brands fa-golang"></i> Go</span>
+            <span class="font-mono text-[0.7rem] px-[0.55rem] py-[0.2rem] border border-border rounded text-muted flex items-center gap-[0.3rem] hover:border-accent hover:text-accent transition-all duration-200"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-mono text-[0.75rem] text-accent uppercase tracking-[0.06em] mb-[0.6rem] font-semibold"><i class="fas fa-certificate"></i> <span data-tr="Metodolojiler"
+              data-en="Methodologies">Metodolojiler</span></h4>
+          <div class="flex flex-wrap gap-[0.4rem]">
+            <span class="font-mono text-[0.7rem] px-[0.55rem] py-[0.2rem] border border-border rounded text-muted flex items-center gap-[0.3rem] hover:border-accent hover:text-accent transition-all duration-200"><i class="fas fa-circle-check"></i> OSSTMM</span>
+            <span class="font-mono text-[0.7rem] px-[0.55rem] py-[0.2rem] border border-border rounded text-muted flex items-center gap-[0.3rem] hover:border-accent hover:text-accent transition-all duration-200"><i class="fas fa-circle-check"></i> PTES</span>
+            <span class="font-mono text-[0.7rem] px-[0.55rem] py-[0.2rem] border border-border rounded text-muted flex items-center gap-[0.3rem] hover:border-accent hover:text-accent transition-all duration-200"><i class="fas fa-circle-check"></i> MITRE ATT&CK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise" class="py-20 px-8 max-w-[900px] mx-auto opacity-0 translate-y-5 transition-all duration-700 ease-out" data-reveal>
+    <div class="mb-10 text-center">
+      <span class="font-mono text-[0.7rem] text-muted uppercase tracking-[0.15em] mb-1.5 block" data-tr="YETENEKLERİM" data-en="MY SKILLS">YETENEKLERİM</span>
+      <h2 class="text-2xl font-semibold text-text text-center tracking-tight" data-tr="Yeteneklerim" data-en="My Skills">Yeteneklerim</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="border border-border rounded p-5 hover:border-accent hover:bg-accent-subtle hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
+        <div class="w-8 h-8 border border-border rounded flex items-center justify-center text-accent text-[0.85rem] mb-3">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <h3 class="text-[0.9rem] font-semibold mb-[0.35rem]" data-tr="Siber Güvenlik Temelleri" data-en="Cybersecurity Fundamentals">Siber Güvenlik Temelleri</h3>
+        <p class="text-muted text-[0.8rem] leading-relaxed" data-tr="Cisco ve ICCW akreditasyonlu eğitimlerle siber tehdit manzarası, temel savunma mekanizmaları ve bilgi güvenliği prensipleri konularında sağlam bir temel oluşturdum."
+          data-en="I built a solid foundation in cyber threat landscape, core defense mechanisms, and information security principles through Cisco and ICCW accredited training.">
+          Cisco ve ICCW akreditasyonlu eğitimlerle siber tehdit manzarası, temel savunma mekanizmaları ve bilgi
+          güvenliği prensipleri konularında sağlam bir temel oluşturdum.
+        </p>
+      </div>
+
+      <div class="border border-border rounded p-5 hover:border-accent hover:bg-accent-subtle hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
+        <div class="w-8 h-8 border border-border rounded flex items-center justify-center text-accent text-[0.85rem] mb-3">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3 class="text-[0.9rem] font-semibold mb-[0.35rem]" data-tr="Bilgisayar Ağları & Altyapı" data-en="Computer Networks & Infrastructure">Bilgisayar Ağları &
+          Altyapı</h3>
+        <p class="text-muted text-[0.8rem] leading-relaxed" data-tr="120 saatlik uzmanlık eğitimleriyle bilgisayar ağlarının yapısını, protokollerini ve ağ güvenliği prensiplerini öğreniyor; bu alandaki bilgimi sürekli geliştiriyorum."
+          data-en="Through 120 hours of specialized training, I learn the structure of computer networks, protocols, and network security principles; constantly developing my knowledge in this field.">
+          120 saatlik uzmanlık eğitimleriyle bilgisayar ağlarının yapısını, protokollerini ve ağ güvenliği prensiplerini
+          öğreniyor; bu alandaki bilgimi sürekli geliştiriyorum.
+        </p>
+      </div>
+
+      <div class="border border-border rounded p-5 hover:border-accent hover:bg-accent-subtle hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
+        <div class="w-8 h-8 border border-border rounded flex items-center justify-center text-accent text-[0.85rem] mb-3">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3 class="text-[0.9rem] font-semibold mb-[0.35rem]" data-tr="Sürekli Öğrenme & Gelişim" data-en="Continuous Learning & Development">Sürekli Öğrenme & Gelişim
+        </h3>
+        <p class="text-muted text-[0.8rem] leading-relaxed" data-tr="Erzincan Üniversitesi Bilişim Teknolojileri mezunu olarak henüz yolun başındayım; hızlı öğreniyor, Go ve modern araçlarla kendimi geliştiriyor ve yeni fırsatlara açığım."
+          data-en="As a graduate of Erzincan University Information Technologies, I am at the beginning of my journey; I learn fast, develop myself with Go and modern tools, and I am open to new opportunities.">
+          Erzincan Üniversitesi Bilişim Teknolojileri mezunu olarak henüz yolun başındayım; hızlı öğreniyor, Go ve
+          modern araçlarla kendimi geliştiriyor ve yeni fırsatlara açığım.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="py-20 px-8 max-w-[900px] mx-auto opacity-0 translate-y-5 transition-all duration-700 ease-out" data-reveal>
+    <div class="mb-10 text-center">
+      <span class="font-mono text-[0.7rem] text-muted uppercase tracking-[0.15em] mb-1.5 block" data-tr="EĞİTİM & LİSANSLAR" data-en="EDUCATION & LICENSES">EĞİTİM & LİSANSLAR</span>
+      <h2 class="text-2xl font-semibold text-text text-center tracking-tight" data-tr="Sertifikalar" data-en="Certifications">Sertifikalar</h2>
+    </div>
+
+    <div class="relative pl-5 before:content-[''] before:absolute before:w-[1px] before:bg-border before:top-2 before:bottom-2 before:left-0">
+      <div class="pb-6 pl-5 relative before:absolute before:left-[-3px] before:top-[1.1rem] before:w-[9px] before:h-[9px] before:rounded-full before:bg-border before:border-[3px] before:border-bg hover:before:bg-accent before:transition-colors before:duration-200">
+        <div class="bg-surface border border-border rounded-lg p-4 hover:border-accent hover:shadow-md transition-all duration-300">
+          <div class="flex gap-4 items-start">
+            <div class="w-11 h-11 border border-border rounded-lg flex items-center justify-center flex-shrink-0 p-[6px] bg-bg/50">
+              <img src="assets/images/iccw-logo.png" alt="ICCW" loading="lazy" class="w-full h-full object-contain">
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-mono text-[0.7rem] text-accent font-medium mb-1 block" data-tr="Mart 2026" data-en="March 2026">Mart 2026</span>
+              <h3 class="text-[0.9rem] font-semibold mb-[0.15rem]" data-tr="Siber Güvenlik ve Bilgisayar Ağları Uzmanlık Eğitimi"
+                data-en="Cybersecurity and Computer Networks Expertise Training">Siber Güvenlik ve Bilgisayar Ağları
+                Uzmanlık Eğitimi</h3>
+              <p class="text-[0.8rem] text-muted mb-[0.35rem]" data-tr="Altın Kariyer Akademi · ICCW" data-en="Altın Career Academy · ICCW">Altın Kariyer Akademi · ICCW</p>
+              <p class="text-muted text-[0.8rem] leading-relaxed" data-tr="Siber güvenlik ve bilgisayar ağları uzmanlık programını tamamlayarak sınavı başarıyla geçtim. ICCW akreditasyonlu sertifika."
+                data-en="Successfully completed the cybersecurity and computer networks specialist program and passed the exam. ICCW accredited certificate.">
+                Siber güvenlik ve bilgisayar ağları uzmanlık programını tamamlayarak sınavı başarıyla geçtim. ICCW
+                akreditasyonlu sertifika.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pb-6 pl-5 relative before:absolute before:left-[-3px] before:top-[1.1rem] before:w-[9px] before:h-[9px] before:rounded-full before:bg-border before:border-[3px] before:border-bg hover:before:bg-accent before:transition-colors before:duration-200">
+        <div class="bg-surface border border-border rounded-lg p-4 hover:border-accent hover:shadow-md transition-all duration-300">
+          <div class="flex gap-4 items-start">
+            <div class="w-11 h-11 border border-border rounded-lg flex items-center justify-center flex-shrink-0 p-[6px] bg-white">
+              <img src="assets/images/mudanya-logo.png" alt="Mudanya Üniversitesi" loading="lazy" class="w-full h-full object-contain">
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-mono text-[0.7rem] text-accent font-medium mb-1 block" data-tr="Aralık 2025" data-en="December 2025">Aralık 2025</span>
+              <h3 class="text-[0.9rem] font-semibold mb-[0.15rem]" data-tr="Siber Güvenlik ve Bilgisayar Ağları Eğitimi"
+                data-en="Cybersecurity and Computer Networks Training">Siber Güvenlik ve Bilgisayar
+                Ağları Eğitimi</h3>
+              <p class="text-[0.8rem] text-muted mb-[0.35rem]" data-tr="Mudanya Üniversitesi · MUDU SEM" data-en="Mudanya University · MUDU SEM">Mudanya Üniversitesi · MUDU SEM</p>
+              <p class="text-muted text-[0.8rem] leading-relaxed" data-tr="30 Kasım – 31 Aralık 2025 tarihleri arasında sürdürülen 120 saatlik siber güvenlik ve bilgisayar ağları eğitim programını tamamladım."
+                data-en="Completed the 120-hour cybersecurity and computer networks training program held between November 30 – December 31, 2025.">
+                30 Kasım – 31 Aralık 2025 tarihleri arasında sürdürülen siber güvenlik ve bilgisayar ağları
+                eğitim programını tamamladım.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pb-6 pl-5 relative before:absolute before:left-[-3px] before:top-[1.1rem] before:w-[9px] before:h-[9px] before:rounded-full before:bg-border before:border-[3px] before:border-bg hover:before:bg-accent before:transition-colors before:duration-200 last:pb-0">
+        <div class="bg-surface border border-border rounded-lg p-4 hover:border-accent hover:shadow-md transition-all duration-300">
+          <div class="flex gap-4 items-start">
+            <div class="w-11 h-11 border border-border rounded-lg flex items-center justify-center flex-shrink-0 p-[6px] bg-bg/50">
+              <svg class="fill-muted w-7 h-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2.5" y="8" width="1.2" height="4" rx="0.6" />
+                <rect x="4.7" y="6.8" width="1.2" height="6.4" rx="0.6" />
+                <rect x="6.9" y="5.6" width="1.2" height="8.8" rx="0.6" />
+                <rect x="9.1" y="4.4" width="1.2" height="11.2" rx="0.6" />
+                <rect x="11.3" y="5.6" width="1.2" height="8.8" rx="0.6" />
+                <rect x="13.5" y="4.4" width="1.2" height="11.2" rx="0.6" />
+                <rect x="15.7" y="5.6" width="1.2" height="8.8" rx="0.6" />
+                <rect x="17.9" y="6.8" width="1.2" height="6.4" rx="0.6" />
+                <rect x="20.1" y="8" width="1.2" height="4" rx="0.6" />
+                <text x="12" y="21.5" font-size="4.2" font-family="'Inter', sans-serif" font-weight="900"
+                  text-anchor="middle" letter-spacing="0.02em">cisco</text>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-mono text-[0.7rem] text-accent font-medium mb-1 block" data-tr="Ekim 2021" data-en="October 2021">Ekim 2021</span>
+              <h3 class="text-[0.9rem] font-semibold mb-[0.15rem]" data-tr="Introduction to Cybersecurity" data-en="Introduction to Cybersecurity">Introduction to
+                Cybersecurity</h3>
+              <p class="text-[0.8rem] text-muted mb-[0.35rem]">Cisco</p>
+              <p class="text-muted text-[0.8rem] leading-relaxed" data-tr="Ağ güvenliği temelleri, siber tehdit manzarası, temel savunma mekanizmaları ve bilgi güvenliği prensipleri üzerine eğitim sertifikası."
+                data-en="Certificate on network security basics, cyber threat landscape, core defense mechanisms, and information security principles.">
+                Ağ güvenliği temelleri, siber tehdit manzarası, temel savunma mekanizmaları ve bilgi güvenliği
+                prensipleri
+                üzerine eğitim sertifikası.
+              </p>
+              <br>
+              <a href="https://www.credly.com/badges/8f8e08c8-a2ff-428f-b93e-e3bb3d576b68" target="_blank"
+                class="inline-flex items-center gap-[0.35rem] text-[0.75rem] text-muted border border-border px-[0.6rem] py-[0.2rem] rounded-full mt-2 transition-all duration-200 hover:border-accent hover:text-accent hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span data-tr="Yeterlilik belgesini göster" data-en="Show credential">Yeterlilik belgesini göster</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[0.6rem]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-20 px-8 max-w-[900px] mx-auto opacity-0 translate-y-5 transition-all duration-700 ease-out" data-reveal>
+    <div class="mb-10 text-center">
+      <span class="font-mono text-[0.7rem] text-muted uppercase tracking-[0.15em] mb-1.5 block" data-tr="AÇIK KAYNAK" data-en="OPEN SOURCE">AÇIK KAYNAK</span>
+      <h2 class="text-2xl font-semibold text-text text-center tracking-tight" data-tr="Projeler & Araçlar" data-en="Projects & Tools">Projeler & Araçlar</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="bg-surface border border-border rounded-lg overflow-hidden hover:border-accent hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+        <div class="w-full aspect-[3/2] overflow-hidden bg-bg/50 max-h-[160px]">
+          <img src="img/zealpdf.png" alt="ZealPDF" class="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        </div>
+        <div class="p-5">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="text-[0.6rem] font-mono px-2 py-0.5 rounded uppercase tracking-[0.03em] bg-[rgba(227,79,38,0.12)] text-[#e34f26]">HTML</span>
+            <span class="text-[0.6rem] font-mono px-2 py-0.5 rounded uppercase tracking-[0.03em] bg-[rgba(21,114,182,0.12)] text-[#1572b6]">CSS</span>
+            <span class="text-[0.6rem] font-mono px-2 py-0.5 rounded uppercase tracking-[0.03em] bg-[rgba(247,223,30,0.12)] text-[#d4a417]">JS</span>
+          </div>
+          <h3 class="text-base font-semibold mb-1.5">ZealPDF</h3>
+          <p class="text-muted text-[0.8rem] leading-relaxed mb-4" data-tr="Birden fazla PDF dosyasını tarayıcınızda birleştirin. Tüm işlemler istemci tarafında yapılır, verileriniz sunucuya gönderilmez."
+            data-en="Merge multiple PDF files in your browser. All processing happens client-side, your data never leaves your device.">
+            Birden fazla PDF dosyasını tarayıcınızda birleştirin. Tüm işlemler istemci tarafında yapılır, verileriniz sunucuya gönderilmez.
+          </p>
+          <div class="flex gap-2">
+            <span class="inline-flex items-center gap-1.5 text-[0.8rem] text-muted font-medium opacity-50 cursor-default">
+              <i class="fab fa-github"></i>
+              <span data-tr="Yakında" data-en="Soon">Yakında</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface border border-border rounded-lg overflow-hidden hover:border-accent hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+        <div class="w-full aspect-[3/2] overflow-hidden bg-bg/50 max-h-[160px]">
+          <img src="img/zealcv.png" alt="CV-Generator" class="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        </div>
+        <div class="p-5">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="text-[0.6rem] font-mono px-2 py-0.5 rounded uppercase tracking-[0.03em] bg-[rgba(227,79,38,0.12)] text-[#e34f26]">HTML</span>
+            <span class="text-[0.6rem] font-mono px-2 py-0.5 rounded uppercase tracking-[0.03em] bg-[rgba(21,114,182,0.12)] text-[#1572b6]">CSS</span>
+            <span class="text-[0.6rem] font-mono px-2 py-0.5 rounded uppercase tracking-[0.03em] bg-[rgba(247,223,30,0.12)] text-[#d4a417]">JS</span>
+          </div>
+          <h3 class="text-base font-semibold mb-1.5">ZealCV</h3>
+          <p class="text-muted text-[0.8rem] leading-relaxed mb-4" data-tr="Profesyonel CV'nizi kolayca oluşturun. Modern, klasik ve profesyonel şablonlar arasından seçim yapın, PDF olarak indirin."
+            data-en="Create your professional CV easily. Choose from modern, classic, and professional templates, download as PDF.">
+            Profesyonel CV'nizi kolayca oluşturun. Modern, klasik ve profesyonel şablonlar arasından seçim yapın, PDF olarak indirin.
+          </p>
+          <div class="flex gap-2">
+            <span class="inline-flex items-center gap-1.5 text-[0.8rem] text-muted font-medium opacity-50 cursor-default">
+              <i class="fab fa-github"></i>
+              <span data-tr="Yakında" data-en="Soon">Yakında</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 px-8 max-w-[900px] mx-auto opacity-0 translate-y-5 transition-all duration-700 ease-out" data-reveal>
+    <div class="mb-10 text-center">
+      <span class="font-mono text-[0.7rem] text-muted uppercase tracking-[0.15em] mb-1.5 block" data-tr="İLETİŞİM" data-en="CONTACT">İLETİŞİM</span>
+      <h2 class="text-2xl font-semibold text-text text-center tracking-tight" data-tr="İletişime Geçin" data-en="Get in Touch">İletişime Geçin</h2>
+    </div>
+    <div class="max-w-[450px] mx-auto">
+      <div class="bg-surface border border-border rounded-lg p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-share-nodes text-[1.5rem] text-accent mb-3 block"></i>
+        <h3 class="text-base font-semibold mb-2" data-tr="Sosyal Medya" data-en="Social Media">Sosyal Medya</h3>
+        <p class="text-muted text-[0.85rem] mb-5 leading-relaxed" data-tr="Benimle siber güvenlik çalışmaları ve paylaşımları için sosyal medya üzerinden bağlantı kurabilirsiniz."
+          data-en="You can connect with me on social networks for cybersecurity work and posts.">
+          Benimle siber güvenlik çalışmaları ve paylaşımları için sosyal medya üzerinden bağlantı kurabilirsiniz.
+        </p>
+        <div class="flex gap-3 justify-center">
+          <a href="https://linkedin.com/in/onatdibo" class="w-11 h-11 border border-border rounded flex items-center justify-center text-muted text-[1.1rem] transition-all duration-200 hover:text-accent hover:border-accent hover:shadow-sm hover:-translate-y-0.5" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/zealmight" class="w-11 h-11 border border-border rounded flex items-center justify-center text-muted text-[1.1rem] transition-all duration-200 hover:text-accent hover:border-accent hover:shadow-sm hover:-translate-y-0.5" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+          <a href="https://medium.com/@onatdbo" class="w-11 h-11 border border-border rounded flex items-center justify-center text-muted text-[1.1rem] transition-all duration-200 hover:text-accent hover:border-accent hover:shadow-sm hover:-translate-y-0.5" aria-label="Medium Blog"><i class="fab fa-medium-m"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative py-8 px-8 mt-12 before:absolute before:top-0 before:left-8 before:right-8 before:h-[1px] before:bg-gradient-to-r">
+    <div class="max-w-[900px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="text-muted text-[0.8rem] order-2 sm:order-1" data-tr="&copy; 2026 ZealMight. Tüm hakları saklıdır."
+        data-en="&copy; 2026 ZealMight. All rights reserved.">
+        &copy; 2026 ZealMight.
+      </div>
+      <div class="flex items-center gap-2 text-muted text-[0.75rem] order-1 sm:order-2">
+        <span>built with</span>
+        <span class="text-accent">&lt;/&gt;</span>
+        <span>by</span>
+        <a href="#hero" class="font-mono text-accent hover:text-accent/80 transition-colors duration-200">ZealMight</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>
