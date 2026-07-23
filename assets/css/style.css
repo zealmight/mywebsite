@@ -25,7 +25,6 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
 .left-0 { left: 0; }
 .top-0 { top: 0; }
 .z-50 { z-index: 50; }
-.z-40 { z-index: 40; }
 .order-1 { order: 1; }
 .order-2 { order: 2; }
 
@@ -77,10 +76,7 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
 
 .translate-y-0 { transform: translateY(0); }
 .translate-y-5 { transform: translateY(1.25rem); }
-.-translate-y-0\.5 { transform: translateY(-0.125rem); }
-.-translate-y-1 { transform: translateY(-0.25rem); }
-.scale-\[1\.02\] { transform: scale(1.02); }
-.scale-95 { transform: scale(0.95); }
+
 
 .animate-cursor-blink { animation: cursor-blink 0.8s step-end infinite; }
 
@@ -116,18 +112,14 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
 .border { border-width: 1px; }
 .border-b { border-bottom-width: 1px; }
 .border-r-2 { border-right-width: 2px; }
-.border-t { border-top-width: 1px; }
 .border-none { border-style: none; }
 
 .border-accent { border-color: var(--accent); }
 .border-border { border-color: var(--border); }
-.border-transparent { border-color: transparent; }
 
-.bg-accent { background-color: var(--accent); }
 .bg-bg { background-color: var(--bg); }
 .bg-bg\/50 { background-color: color-mix(in srgb, var(--bg) 50%, transparent); }
 .bg-surface { background-color: var(--surface); }
-.bg-accent-subtle { background-color: var(--accent-subtle); }
 .bg-transparent { background-color: transparent; }
 .bg-white { background-color: #fff; }
 
@@ -151,13 +143,11 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
 .px-\[0\.55rem\] { padding-left: 0.55rem; padding-right: 0.55rem; }
 .px-\[0\.6rem\] { padding-left: 0.6rem; padding-right: 0.6rem; }
 .px-\[0\.65rem\] { padding-left: 0.65rem; padding-right: 0.65rem; }
-.px-\[1\.2rem\] { padding-left: 1.2rem; padding-right: 1.2rem; }
 .py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
 .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
 .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
 .py-\[0\.2rem\] { padding-top: 0.2rem; padding-bottom: 0.2rem; }
 .py-\[0\.25rem\] { padding-top: 0.25rem; padding-bottom: 0.25rem; }
-.py-\[0\.55rem\] { padding-top: 0.55rem; padding-bottom: 0.55rem; }
 .pb-6 { padding-bottom: 1.5rem; }
 .pl-5 { padding-left: 1.25rem; }
 .pt-24 { padding-top: 6rem; }
@@ -203,7 +193,7 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
 .text-muted { color: var(--muted); }
 .text-text { color: var(--text); }
 .text-transparent { color: transparent; }
-.text-white { color: #fff; }
+
 
 .antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
@@ -235,7 +225,6 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
 .hover\:text-text:hover { color: var(--text); }
 .hover\:text-accent\/80:hover { color: var(--accent); opacity: 0.8; }
 .hover\:opacity-80:hover { opacity: 0.8; }
-.hover\:opacity-90:hover { opacity: 0.9; }
 .hover\:-translate-y-0\.5:hover { transform: translateY(-0.125rem); }
 .hover\:-translate-y-1:hover { transform: translateY(-0.25rem); }
 .hover\:scale-\[1\.02\]:hover { transform: scale(1.02); }
@@ -243,15 +232,12 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
 .hover\:shadow-md:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); }
 .hover\:shadow-lg:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
 .hover\:shadow-xl:hover { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); }
-.hover\:shadow-2xl:hover { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
-.hover\:ring-accent:hover { --ring-color: var(--accent); }
 .hover\:before\:bg-accent:hover::before { background-color: var(--accent); }
 
 .focus-visible\:outline-none:focus-visible { outline: 2px solid transparent; outline-offset: 2px; }
 .focus-visible\:ring-2:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
 .focus-visible\:ring-accent:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
 
-.active\:scale-95:active { transform: scale(0.95); }
 
 .group:hover .group-hover\:scale-105 { transform: scale(1.05); }
 
@@ -316,6 +302,5 @@ input, textarea, select { font: inherit; color: inherit; margin: 0; padding: 0; 
   .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .md\:flex-row { flex-direction: row; }
-  .md\:justify-start { justify-content: flex-start; }
   .md\:text-left { text-align: left; }
 }
