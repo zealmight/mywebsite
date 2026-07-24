@@ -131,8 +131,11 @@
       if (html) el.innerHTML = html
     })
 
+    var langLabel = lang === 'tr' ? 'EN' : 'TR'
     var langBtn = document.getElementById('lang-toggle')
-    if (langBtn) langBtn.textContent = lang === 'tr' ? 'EN' : 'TR'
+    var mobileLangBtn = document.getElementById('lang-toggle-mobile')
+    if (langBtn) langBtn.textContent = langLabel
+    if (mobileLangBtn) mobileLangBtn.textContent = langLabel
   }
 
   var langBtn = document.getElementById('lang-toggle')
@@ -188,6 +191,17 @@
      SMOOTH SCROLL + NAV ACTIVE STATE
      ═══════════════════════════════════════════════════ */
 
+  var mobileMenu = document.getElementById('mobile-menu')
+  var hamburgerBtn = document.getElementById('hamburger-toggle')
+
+  function closeMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.remove('open')
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.remove('active')
+      hamburgerBtn.setAttribute('aria-expanded', 'false')
+    }
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       e.preventDefault()
@@ -195,20 +209,44 @@
       if (targetId === '#') return
       var target = document.querySelector(targetId)
       if (target) target.scrollIntoView({ behavior: 'smooth' })
+      closeMobileMenu()
     })
   })
 
-  var navLinks = document.querySelectorAll('.camera-nav-link')
+  // Hamburger toggle
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open')
+      hamburgerBtn.classList.toggle('active', isOpen)
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+    })
+  }
+
+  // Mobile lang button syncs with same logic as desktop
+  var mobileLangBtn = document.getElementById('lang-toggle-mobile')
+  if (mobileLangBtn) {
+    mobileLangBtn.addEventListener('click', function () {
+      currentLang = currentLang === 'tr' ? 'en' : 'tr'
+      savePref('lang', currentLang)
+      translatePage(currentLang)
+    })
+  }
+
+  // Desktop + mobile nav links active state
+  var allNavLinks = document.querySelectorAll('.camera-nav-link, .mobile-nav-link')
   var sections = document.querySelectorAll('.term-section[id]')
+
+  function updateActiveNav(id) {
+    allNavLinks.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id)
+    })
+  }
 
   var navObserver = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          var id = entry.target.getAttribute('id')
-          navLinks.forEach(function (a) {
-            a.classList.toggle('active', a.getAttribute('href') === '#' + id)
-          })
+          updateActiveNav(entry.target.getAttribute('id'))
         }
       })
     },

@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .camera-hud {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 130;
   pointer-events: none;
   padding: 16px 20px;
 }
@@ -278,7 +278,108 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 }
 
 /* ═══════════════════════════════════════════════════
-   CAMERA NAVIGATION
+   HAMBURGER + MOBILE MENU
+   ═══════════════════════════════════════════════════ */
+
+.hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 120;
+  width: 36px;
+  height: 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 6px;
+  border: 1px solid var(--green-dim);
+  background: rgba(10, 13, 10, 0.9);
+}
+
+.hamburger-line {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--green);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 84px;
+  left: 0;
+  right: 0;
+  z-index: 115;
+  background: rgba(10, 13, 10, 0.96);
+  border-bottom: 1px solid rgba(77, 255, 136, 0.12);
+  padding: 16px 20px 20px;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.mobile-nav-link {
+  display: block;
+  font-family: var(--font-hud);
+  font-size: 18px;
+  color: var(--green-dim);
+  padding: 8px 12px;
+  border-left: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--green);
+  border-left-color: var(--green);
+}
+
+.mobile-lang-btn {
+  font-family: var(--font-hud);
+  font-size: 16px;
+  color: var(--green-dim);
+  padding: 6px 16px;
+  border: 1px solid var(--green-dim);
+  transition: color 0.2s, border-color 0.2s;
+  letter-spacing: 0.06em;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-lang-btn:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+/* ═══════════════════════════════════════════════════
+   CAMERA NAVIGATION (desktop only)
    ═══════════════════════════════════════════════════ */
 
 .camera-nav {
@@ -928,31 +1029,17 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 }
 
 @media (max-width: 768px) {
-  .camera-nav {
-    top: auto;
-    bottom: 12px;
-    left: 0;
-    right: 0;
-    transform: none;
+  .hamburger-btn {
+    display: flex;
   }
 
-  .camera-nav-list {
-    flex-direction: row;
-    justify-content: center;
-    gap: 4px;
-    padding: 0 12px;
+  .camera-nav,
+  .lang-btn {
+    display: none;
   }
 
-  .camera-nav-link {
-    border-right: none;
-    border-bottom: 1px solid transparent;
-    font-size: 13px;
-    padding: 5px 8px;
-  }
-
-  .camera-nav-link:hover,
-  .camera-nav-link.active {
-    border-bottom-color: var(--green);
+  .mobile-menu {
+    display: block;
   }
 
   .hud-bl,
@@ -960,20 +1047,18 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
     display: none;
   }
 
+  .hud-tr {
+    top: 64px;
+    right: 20px;
+  }
+
   .terminal-wrapper {
-    padding: 56px 12px 90px;
+    padding: 100px 12px 40px;
   }
 
   .term-body {
     padding: 16px;
     font-size: 13px;
-  }
-
-  .lang-btn {
-    top: auto;
-    bottom: 42px;
-    right: 50%;
-    transform: translateX(50%);
   }
 }
 
@@ -988,10 +1073,12 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 
   .hud-tr {
     font-size: 12px;
+    top: 60px;
+    right: 12px;
   }
 
   .terminal-wrapper {
-    padding: 52px 8px 90px;
+    padding: 96px 8px 40px;
   }
 
   .term-body {
@@ -999,14 +1086,8 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
     font-size: 12px;
   }
 
-  .camera-nav-link {
-    font-size: 12px;
-    padding: 4px 6px;
-  }
-
-  .lang-btn {
-    font-size: 14px;
-    bottom: 40px;
+  .mobile-nav-link {
+    font-size: 16px;
   }
 }
 
