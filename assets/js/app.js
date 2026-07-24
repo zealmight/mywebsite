@@ -1,177 +1,211 @@
 ;(function () {
-  let typewriterTimeout = null
+  'use strict'
+
+  /* ═══════════════════════════════════════════════════
+     STATE
+     ═══════════════════════════════════════════════════ */
+
   let currentLang = 'tr'
+  let bootComplete = false
 
   try {
     currentLang = localStorage.getItem('lang') || 'tr'
-  } catch (e) {
-    // localStorage kullanılamıyor (private browsing / depolama dolu)
+  } catch (_) {}
+
+  function savePref(key, val) {
+    try { localStorage.setItem(key, val) } catch (_) {}
   }
 
-  /* Hero subtitle typewriter animasyonunu başlatır: yazma/silme döngüsüyle metinleri sırayla gösterir */
-  function initTypewriter(lang) {
-    if (typewriterTimeout) clearTimeout(typewriterTimeout)
+  function loadPref(key, fallback) {
+    try { return localStorage.getItem(key) || fallback } catch (_) { return fallback }
+  }
 
-    const el = document.querySelector('.typewrite')
-    if (!el) return
+  /* ═══════════════════════════════════════════════════
+     LIVE CLOCK (HUD)
+     ═══════════════════════════════════════════════════ */
 
-    const toRotateAttr = el.getAttribute(`data-type-${lang}`)
-    const period = parseInt(el.getAttribute('data-period'), 10) || 2000
+  const hudDate = document.getElementById('hud-date')
+  const hudTime = document.getElementById('hud-time')
 
-    if (!toRotateAttr) return
+  function padZero(n) { return n < 10 ? '0' + n : '' + n }
 
-    const toRotate = JSON.parse(toRotateAttr)
-    let loopNum = 0
-    let txt = ''
-    let isDeleting = false
+  function updateClock() {
+    const now = new Date()
+    const y = now.getFullYear()
+    const m = padZero(now.getMonth() + 1)
+    const d = padZero(now.getDate())
+    const h = padZero(now.getHours())
+    const mi = padZero(now.getMinutes())
+    const s = padZero(now.getSeconds())
 
-    function tick() {
-      const i = loopNum % toRotate.length
-      const fullTxt = toRotate[i]
+    if (hudDate) hudDate.textContent = y + '.' + m + '.' + d
+    if (hudTime) hudTime.textContent = h + ':' + mi + ':' + s
+  }
 
-      txt = isDeleting
-        ? fullTxt.substring(0, txt.length - 1)
-        : fullTxt.substring(0, txt.length + 1)
+  updateClock()
+  setInterval(updateClock, 1000)
 
-      el.innerHTML = '<span class="border-r-2 border-accent animate-cursor-blink">' + txt + '</span>'
+  /* ═══════════════════════════════════════════════════
+     BOOT SEQUENCE
+     ═══════════════════════════════════════════════════ */
 
-      let delta = 200 - Math.random() * 100
-      if (isDeleting) delta /= 2
+  const bootEl = document.getElementById('boot-sequence')
+  const contentEl = document.getElementById('term-content')
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-      if (!isDeleting && txt === fullTxt) {
-        delta = period
-        isDeleting = true
-      } else if (isDeleting && txt === '') {
-        isDeleting = false
-        loopNum++
-        delta = 500
+  function runBoot() {
+    if (!bootEl || !contentEl) return
+
+    if (prefersReduced) {
+      bootEl.classList.add('hidden')
+      contentEl.classList.add('visible')
+      bootComplete = true
+      initTargetLockLabels()
+      return
+    }
+
+    const lines = bootEl.querySelectorAll('.term-line')
+    let i = 0
+
+    function showNext() {
+      if (i >= lines.length) {
+        setTimeout(function () {
+          bootEl.classList.add('hidden')
+          contentEl.classList.add('visible')
+          bootComplete = true
+          initTargetLockLabels()
+        }, 400)
+        return
       }
 
-      typewriterTimeout = setTimeout(tick, delta)
+      lines[i].style.opacity = '1'
+      lines[i].style.transform = 'translateY(0)'
+      i++
+
+      if (lines[i - 1].classList.contains('boot-output')) {
+        setTimeout(showNext, 300)
+      } else {
+        setTimeout(showNext, 600)
+      }
     }
 
-    tick()
-  }
-
-  function savePreference(key, value) {
-    try {
-      localStorage.setItem(key, value)
-    } catch (e) {
-      // localStorage kullanılamıyor, sessizce geç
-    }
-  }
-
-  function loadPreference(key, fallback) {
-    try {
-      return localStorage.getItem(key) || fallback
-    } catch (e) {
-      return fallback
-    }
-  }
-
-  /* Kaydedilmiş temayı localStorage'dan okuyup uygular (dark/light) */
-  function initTheme() {
-    const savedTheme = loadPreference('theme', 'light')
-    const isDark = savedTheme === 'dark'
-    document.body.classList.toggle('dark', isDark)
-    const btn = document.getElementById('theme-toggle')
-    if (btn) btn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'
-  }
-
-  const themeToggleBtn = document.getElementById('theme-toggle')
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const isDark = document.body.classList.toggle('dark')
-      savePreference('theme', isDark ? 'dark' : 'light')
-      themeToggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'
+    // Set initial state for boot lines
+    lines.forEach(function (line) {
+      line.style.opacity = '0'
+      line.style.transform = 'translateY(4px)'
+      line.style.transition = 'opacity 0.3s ease, transform 0.3s ease'
     })
+
+    setTimeout(showNext, 500)
   }
 
-  /* Tüm sayfa metinlerini seçilen dile çevirir, typewriter'ı yeniden başlatır */
+  /* ═══════════════════════════════════════════════════
+     LANGUAGE SWITCHING
+     ═══════════════════════════════════════════════════ */
+
   function translatePage(lang) {
-    document.querySelectorAll('[data-tr]').forEach(el => {
-      const text = el.getAttribute(`data-${lang}`)
+    document.querySelectorAll('[data-tr]').forEach(function (el) {
+      var text = el.getAttribute('data-' + lang)
       if (text) el.textContent = text
     })
 
-    document.querySelectorAll('[data-tr-html]').forEach(el => {
-      const html = el.getAttribute(`data-${lang}-html`)
+    document.querySelectorAll('[data-tr-html]').forEach(function (el) {
+      var html = el.getAttribute('data-' + lang + '-html')
       if (html) el.innerHTML = html
     })
 
-    const langToggleBtn = document.getElementById('lang-toggle')
-    if (langToggleBtn) langToggleBtn.textContent = lang === 'tr' ? 'EN' : 'TR'
-
-    initTypewriter(lang)
+    var langBtn = document.getElementById('lang-toggle')
+    if (langBtn) langBtn.textContent = lang === 'tr' ? 'EN' : 'TR'
   }
 
-  const langToggleBtn = document.getElementById('lang-toggle')
-  if (langToggleBtn) {
-    langToggleBtn.addEventListener('click', () => {
+  var langBtn = document.getElementById('lang-toggle')
+  if (langBtn) {
+    langBtn.addEventListener('click', function () {
       currentLang = currentLang === 'tr' ? 'en' : 'tr'
-      savePreference('lang', currentLang)
+      savePref('lang', currentLang)
       translatePage(currentLang)
     })
   }
 
-  const menuToggle = document.getElementById('menu-toggle')
-  const navLinksEl = document.getElementById('nav-links')
+  /* ═══════════════════════════════════════════════════
+     TARGET-LOCK LABELS
+     ═══════════════════════════════════════════════════ */
 
-  if (menuToggle && navLinksEl) {
-    menuToggle.addEventListener('click', () => {
-      navLinksEl.classList.toggle('left-0')
-      const icon = menuToggle.querySelector('i')
-      icon.className = navLinksEl.classList.contains('left-0') ? 'fas fa-times' : 'fas fa-bars'
+  function initTargetLockLabels() {
+    document.querySelectorAll('.targetable').forEach(function (el) {
+      if (el.querySelector('.target-lock-label')) return
+
+      var label = document.createElement('span')
+      label.className = 'target-lock-label'
+      label.textContent = 'TARGET_LOCKED'
+      label.setAttribute('aria-hidden', 'true')
+      el.appendChild(label)
     })
   }
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  /* ═══════════════════════════════════════════════════
+     GLITCH EFFECT (random, every 2-5 minutes)
+     ═══════════════════════════════════════════════════ */
+
+  var glitchOverlay = document.getElementById('glitch-overlay')
+
+  function triggerGlitch() {
+    if (!glitchOverlay || prefersReduced) return
+    glitchOverlay.classList.add('active')
+    setTimeout(function () {
+      glitchOverlay.classList.remove('active')
+    }, 200)
+  }
+
+  function scheduleGlitch() {
+    var delay = 120000 + Math.random() * 180000 // 2-5 minutes
+    setTimeout(function () {
+      triggerGlitch()
+      scheduleGlitch()
+    }, delay)
+  }
+
+  scheduleGlitch()
+
+  /* ═══════════════════════════════════════════════════
+     SMOOTH SCROLL + NAV ACTIVE STATE
+     ═══════════════════════════════════════════════════ */
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       e.preventDefault()
-      const targetId = this.getAttribute('href')
+      var targetId = this.getAttribute('href')
       if (targetId === '#') return
-      const targetElement = document.querySelector(targetId)
-      if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' })
-      if (navLinksEl && navLinksEl.classList.contains('left-0')) {
-        navLinksEl.classList.remove('left-0')
-        if (menuToggle) menuToggle.querySelector('i').className = 'fas fa-bars'
-      }
+      var target = document.querySelector(targetId)
+      if (target) target.scrollIntoView({ behavior: 'smooth' })
     })
   })
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0')
-          revealObserver.unobserve(entry.target)
-        }
-      })
-    },
-    { threshold: 0.12 }
-  )
-  document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el))
+  var navLinks = document.querySelectorAll('.camera-nav-link')
+  var sections = document.querySelectorAll('.term-section[id]')
 
-  const sections = document.querySelectorAll('section')
-  const navAnchorLinks = document.querySelectorAll('#nav-links a')
-
-  const navObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
+  var navObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id')
-          navAnchorLinks.forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === `#${id}`)
+          var id = entry.target.getAttribute('id')
+          navLinks.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id)
           })
         }
       })
     },
     { threshold: 0.3 }
   )
-  sections.forEach(s => navObserver.observe(s))
 
-  document.addEventListener('DOMContentLoaded', () => {
-    initTheme()
+  sections.forEach(function (s) { navObserver.observe(s) })
+
+  /* ═══════════════════════════════════════════════════
+     INIT
+     ═══════════════════════════════════════════════════ */
+
+  document.addEventListener('DOMContentLoaded', function () {
     translatePage(currentLang)
+    runBoot()
   })
 })()
