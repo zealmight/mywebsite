@@ -27,19 +27,36 @@
   const hudDate = document.getElementById('hud-date')
   const hudTime = document.getElementById('hud-time')
 
+  const trMonths = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara']
+  const enMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
   function padZero(n) { return n < 10 ? '0' + n : '' + n }
 
   function updateClock() {
     const now = new Date()
     const y = now.getFullYear()
-    const m = padZero(now.getMonth() + 1)
+    const m = now.getMonth()
     const d = padZero(now.getDate())
     const h = padZero(now.getHours())
     const mi = padZero(now.getMinutes())
     const s = padZero(now.getSeconds())
 
-    if (hudDate) hudDate.textContent = y + '.' + m + '.' + d
-    if (hudTime) hudTime.textContent = h + ':' + mi + ':' + s
+    if (hudDate) {
+      if (currentLang === 'tr') {
+        hudDate.textContent = d + ' ' + trMonths[m] + ' ' + y
+      } else {
+        hudDate.textContent = y + ' ' + enMonths[m] + ' ' + d
+      }
+    }
+    if (hudTime) {
+      if (currentLang === 'tr') {
+        hudTime.textContent = h + ':' + mi + ':' + s
+      } else {
+        var h12 = h % 12 || 12
+        var ampm = h < 12 ? 'AM' : 'PM'
+        hudTime.textContent = padZero(h12) + ':' + mi + ':' + s + ' ' + ampm
+      }
+    }
   }
 
   updateClock()

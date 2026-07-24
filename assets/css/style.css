@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   left: 20px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   font-family: var(--font-hud);
   font-size: 18px;
   color: var(--green);
@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   left: 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   font-family: var(--font-hud);
   font-size: 14px;
   color: var(--green);
@@ -237,7 +237,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .signal-bars {
   display: flex;
   align-items: flex-end;
-  gap: 2px;
+  gap: 6px;
   height: 12px;
 }
 
@@ -292,7 +292,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .camera-nav-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .camera-nav-link {
@@ -360,7 +360,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .term-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   padding: 10px 16px;
   background: rgba(77, 255, 136, 0.04);
   border-bottom: 1px solid rgba(77, 255, 136, 0.08);
@@ -368,7 +368,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 
 .term-dots {
   display: flex;
-  gap: 6px;
+  gap: 10px;
 }
 
 .dot {
@@ -485,7 +485,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 32px;
 }
 
 .term-text {
@@ -497,7 +497,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .about-skills {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .skill-heading {
@@ -512,7 +512,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 10px;
 }
 
 .skill-tag {
@@ -523,7 +523,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   border-radius: 3px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 9px;
   transition: color 0.2s, border-color 0.2s;
 }
 
@@ -539,7 +539,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .expertise-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 20px;
 }
 
 .expertise-card {
@@ -587,7 +587,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .cert-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .cert-item {
@@ -610,7 +610,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 
 .cert-body {
   display: flex;
-  gap: 14px;
+  gap: 18px;
   align-items: flex-start;
 }
 
@@ -670,7 +670,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .cert-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 9px;
   font-size: 11px;
   color: var(--green-dim);
   padding: 3px 10px;
@@ -693,7 +693,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 20px;
 }
 
 .project-card {
@@ -734,7 +734,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 
 .project-tags {
   display: flex;
-  gap: 5px;
+  gap: 9px;
   margin-bottom: 10px;
 }
 
@@ -790,7 +790,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   font-size: 13px;
   color: var(--green-dim);
   padding: 8px 14px;
@@ -824,7 +824,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   font-size: 11px;
 }
 
@@ -915,7 +915,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 @media (min-width: 640px) {
   .about-grid {
     grid-template-columns: 1.2fr 1fr;
-    gap: 32px;
+    gap: 36px;
   }
 
   .expertise-grid {
@@ -930,21 +930,24 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 @media (max-width: 768px) {
   .camera-nav {
     top: auto;
-    bottom: 16px;
-    right: 50%;
-    transform: translateX(50%);
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    transform: none;
   }
 
   .camera-nav-list {
     flex-direction: row;
-    gap: 12px;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 12px;
   }
 
   .camera-nav-link {
     border-right: none;
     border-bottom: 1px solid transparent;
-    font-size: 14px;
-    padding: 2px 6px;
+    font-size: 13px;
+    padding: 5px 8px;
   }
 
   .camera-nav-link:hover,
@@ -958,7 +961,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   }
 
   .terminal-wrapper {
-    padding: 60px 12px 100px;
+    padding: 56px 12px 90px;
   }
 
   .term-body {
@@ -967,29 +970,43 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   }
 
   .lang-btn {
-    top: 16px;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    top: auto;
+    bottom: 42px;
+    right: 50%;
+    transform: translateX(50%);
   }
 }
 
 @media (max-width: 480px) {
   .camera-hud {
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
 
   .hud-tl {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .hud-tr {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .terminal-wrapper {
+    padding: 52px 8px 90px;
   }
 
   .term-body {
     padding: 12px;
     font-size: 12px;
+  }
+
+  .camera-nav-link {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .lang-btn {
+    font-size: 14px;
+    bottom: 40px;
   }
 }
 
