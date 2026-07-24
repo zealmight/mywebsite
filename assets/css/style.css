@@ -768,14 +768,14 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 .cert-logo-wrap {
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(77, 255, 136, 0.1);
+  border: 1px solid rgba(77, 255, 136, 0.35);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   padding: 4px;
-  background: rgba(77, 255, 136, 0.02);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .cert-logo {
@@ -785,13 +785,13 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 }
 
 .cisco-logo-wrap {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .cisco-svg {
   width: 32px;
   height: 32px;
-  fill: var(--green-dim);
+  fill: var(--green);
 }
 
 .cert-info {
