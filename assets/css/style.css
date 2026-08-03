@@ -683,6 +683,21 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   border-color: var(--amber);
 }
 
+.skill-brand-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.skill-tag .fa-js {
+  color: #f7df1e;
+}
+
+.bash-icon {
+  background: #f4f4f4;
+  border-radius: 2px;
+}
+
 /* ═══════════════════════════════════════════════════
    EXPERTISE CARDS
    ═══════════════════════════════════════════════════ */
@@ -954,6 +969,18 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
   color: var(--amber);
   border-color: var(--amber);
   background: rgba(255, 176, 0, 0.04);
+}
+
+.contact-brand-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(34%) sepia(22%) saturate(1231%) hue-rotate(93deg) brightness(92%) contrast(89%);
+}
+
+.contact-link:hover .contact-brand-icon,
+.contact-link:focus-visible .contact-brand-icon {
+  filter: brightness(0) saturate(100%) invert(74%) sepia(91%) saturate(622%) hue-rotate(348deg) brightness(100%) contrast(103%);
 }
 
 /* ═══════════════════════════════════════════════════
