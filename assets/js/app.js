@@ -193,6 +193,7 @@
 
   var mobileMenu = document.getElementById('mobile-menu')
   var hamburgerBtn = document.getElementById('hamburger-toggle')
+  var navClickLock = null
 
   function closeMobileMenu() {
     if (mobileMenu) mobileMenu.classList.remove('open')
@@ -208,7 +209,17 @@
       var targetId = this.getAttribute('href')
       if (targetId === '#') return
       var target = document.querySelector(targetId)
-      if (target) target.scrollIntoView({ behavior: 'smooth' })
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+        if (this.matches('.camera-nav-link, .mobile-nav-link')) {
+          var clickedId = target.id
+          navClickLock = clickedId
+          updateActiveNav(clickedId)
+          setTimeout(function () {
+            if (navClickLock === clickedId) navClickLock = null
+          }, 1800)
+        }
+      }
       closeMobileMenu()
     })
   })
@@ -234,26 +245,42 @@
 
   // Desktop + mobile nav links active state
   var allNavLinks = document.querySelectorAll('.camera-nav-link, .mobile-nav-link')
-  var sections = document.querySelectorAll('.term-section[id]')
+  var navSections = Array.from(allNavLinks)
+    .map(function (link) { return document.querySelector(link.getAttribute('href')) })
+    .filter(Boolean)
 
   function updateActiveNav(id) {
     allNavLinks.forEach(function (a) {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + id)
+      var isActive = a.getAttribute('href') === '#' + id
+      a.classList.toggle('active', isActive)
+      if (isActive) a.setAttribute('aria-current', 'location')
+      else a.removeAttribute('aria-current')
     })
   }
 
-  var navObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          updateActiveNav(entry.target.getAttribute('id'))
-        }
-      })
-    },
-    { threshold: 0.3 }
-  )
+  function syncActiveNav() {
+    if (navClickLock) {
+      updateActiveNav(navClickLock)
+      return
+    }
 
-  sections.forEach(function (s) { navObserver.observe(s) })
+    var activeSection = navSections[0]
+    var scrollMark = window.scrollY + window.innerHeight * 0.45
+
+    navSections.forEach(function (section) {
+      if (section.offsetTop <= scrollMark) activeSection = section
+    })
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1) {
+      activeSection = navSections[navSections.length - 1]
+    }
+
+    if (activeSection) updateActiveNav(activeSection.id)
+  }
+
+  window.addEventListener('scroll', syncActiveNav, { passive: true })
+  window.addEventListener('hashchange', syncActiveNav)
+  syncActiveNav()
 
   /* ═══════════════════════════════════════════════════
      INIT
