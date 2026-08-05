@@ -1039,6 +1039,7 @@ h1, h2, h3, h4, h5, h6, p { font-size: inherit; font-weight: inherit; margin: 0;
 
 .social-linkedin { color: #0a66c2; }
 .social-github { color: #f0f6fc; }
+.social-bluesky { color: #1185fe; }
 .social-blog { color: #f57c00; }
 
 /* ═══════════════════════════════════════════════════
